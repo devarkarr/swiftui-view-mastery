@@ -16,11 +16,11 @@ import SwiftUI
 struct HeaderView : View {
     let title: String
     let subTitle : String
-    let desc : String
+    let desc : String?
     let back: Color
     let textColor : Color
     
-    init( _ title: String, subTitle: String, desc: String, back: Color = .blue, textColor: Color = .white) {
+    init( _ title: String, subTitle: String, desc: String? = nil, back: Color = .blue, textColor: Color = .white) {
         self.title = title
         self.subTitle = subTitle
         self.desc = desc
@@ -35,11 +35,14 @@ struct HeaderView : View {
         Text(subTitle)
             .foregroundStyle(.gray)
         
-        Text(desc)
-            .frame(maxWidth: .infinity)
-            .foregroundStyle(textColor)
-            .padding()
-            .background(back)
+        if let description = desc {
+            Text(description)
+                .frame(maxWidth: .infinity)
+                .foregroundStyle(textColor)
+                .padding()
+                .background(back)
+        }
+       
         
     }
 }
