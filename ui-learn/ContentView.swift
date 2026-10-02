@@ -47,66 +47,65 @@ struct HeaderView : View {
 
 struct ContentView: View {
     var body: some View {
-        
-        ScrollView {
-            
+      
      
         
-        VStack(spacing:20){
+        VStack(spacing:10){
             
             HeaderView("Title", subTitle: "Subtitle", desc: "Short description of what i am demonstrating goes here.",back: .purple)
             
-            Image(systemName: "heart.fill")
-                .font(.largeTitle)
+            VStack {
+                Text("Vstack inside another vstack")
+                Divider()
+                Text("This can be helpful, Why?")
+                Divider()
+                Text("More than 10 views creates an error.")
+                
+
+            }
+            .font(.title3)
+            .padding()
+            .foregroundStyle(.white)
+            .background(
+                RoundedRectangle(cornerRadius: 20).fill(.blue)
+            )
+            .padding()
             
-            Image("Image1")
-                .resizable()
-                .frame(width: 300,height: 300)
-                .opacity(0.7)
-                .background(.red.opacity(0.7))
-                .background(.orange.opacity(0.5))
-                .overlay(Text("Hi").foregroundStyle(.green))
+            VStack(alignment: .leading,spacing: 40) {
+                Text("Leading Alignment")
+                Divider()
+            Image(systemName: "arrow.left")
+    
+
+            }
+            .font(.title3)
+            .padding()
+            .foregroundStyle(.white)
+            .background(
+                RoundedRectangle(cornerRadius: 20).fill(.blue)
+            )
+            .padding()
             
-            Text("This text has a rounded rectangle behind it")
-                .foregroundStyle(.white)
-                .padding(.vertical,5)
-                .padding(.horizontal)
-                .background(
-                    RoundedRectangle(cornerRadius: 20).fill(.purple)
-                )
-         
+            VStack(alignment: .trailing,spacing: 40) {
+                Text("Trailing Alignment")
+                Divider()
+            Image(systemName: "arrow.right")
+    
+
+            }
+            .font(.title3)
+            .padding()
+            .foregroundStyle(.white)
+            .background(
+                RoundedRectangle(cornerRadius: 20).fill(.blue)
+            )
+            .padding()
+            
                 
         }
         .font(.title)
             
-            
-            Image(systemName: "arrow.down")
-            HStack{
-                Image(systemName: "arrow.right")
-                Text("Text views pull in")
-                Image(systemName: "arrow.left")
-
-            }
-            Image(systemName: "arrow.up")
-            
-            
-//            Color.purple
-//                .overlay(Image(systemName: "arrow.up.left").padding(),alignment: .topLeading)
-//                .overlay(Image(systemName: "arrow.up.right").padding(),alignment: .topTrailing)
-//                .overlay(Image(systemName: "arrow.down.left").padding(),alignment: .bottomLeading)
-//                .overlay(Image(systemName: "arrow.down.right").padding(),alignment: .bottomTrailing)
-//                .overlay(Text("Colors are push out view"))
-                
-            
-        }
-     
-        Color.purple
-            .overlay(Image(systemName: "arrow.up.left").padding(),alignment: .topLeading)
-            .overlay(Image(systemName: "arrow.up.right").padding(),alignment: .topTrailing)
-            .overlay(Image(systemName: "arrow.down.left").padding(),alignment: .bottomLeading)
-            .overlay(Image(systemName: "arrow.down.right").padding(),alignment: .bottomTrailing)
-            .overlay(Text("Colors are push out view"))
-            
+  
         
     }
 }
